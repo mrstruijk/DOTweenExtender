@@ -1,5 +1,4 @@
 using DG.Tweening;
-using SOSXR.EnhancedLogger;
 using UnityEngine;
 
 
@@ -25,18 +24,19 @@ namespace SOSXR.DOTweenExtender
         public void StartAudioFade(float fadeDuration)
         {
             m_source.DOFade(0, fadeDuration).OnComplete(DoOnComplete);
-            this.Info("Fading audio out.");
+
+            Debug.Log("Fading audio out.");
         }
 
 
         private void DoOnComplete()
         {
-            this.Info("Audio faded out.");
+            Debug.Log("Audio faded out.");
 
             if (m_disableOnComplete)
             {
                 m_source.enabled = false;
-                this.Info("Disabling source.");
+                Debug.Log("Disabling source.");
             }
         }
     }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using DG.Tweening;
-using SOSXR.EnhancedLogger;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,12 +32,7 @@ namespace SOSXR.DOTweenExtender
             }
 
             FadeIn(5);
-            this.Warning("We've hardcoded the fade duration to 5 seconds, you might want to change this.");
-        }
-
-
-        private void OnEnable()
-        {
+            Debug.LogWarning("We've hardcoded the fade duration to 5 seconds, you might want to change this.");
         }
 
 
@@ -82,13 +76,13 @@ namespace SOSXR.DOTweenExtender
 
             while (_fadeOutCoroutine != null)
             {
-                this.Info("Fade out is still running, waiting for it to finish");
-
+                Debug.Log("Fade out is still running, waiting for it to finish");
                 _backupTimer += Time.deltaTime;
 
                 if (_backupTimer > f)
                 {
-                    this.Error("Backup timer exceeded the fadeOut duration, stopping the fadeOut coroutine");
+                    Debug.LogError("Backup timer exceeded the fadeOut duration, stopping the fadeOut coroutine");
+
                     _fadeOutCoroutine = null;
                 }
 
@@ -97,7 +91,8 @@ namespace SOSXR.DOTweenExtender
 
             if (Math.Abs(m_fadeImage.color.a - 0) < 0.01f)
             {
-                this.Info("Fade in is already finished, not doing anything");
+                Debug.Log("Fade in is already finished, not doing anything");
+
 
                 yield break;
             }
@@ -124,13 +119,14 @@ namespace SOSXR.DOTweenExtender
 
             while (_fadeInCoroutine != null)
             {
-                this.Info("Fade in is still running, waiting for it to finish");
+                Debug.Log("Fade in is still running, waiting for it to finish");
 
                 _backupTimer += Time.deltaTime;
 
                 if (_backupTimer > f)
                 {
-                    this.Error("Backup timer exceeded the fadeIn duration, stopping the fadeIn coroutine");
+                    Debug.LogError("Backup timer exceeded the fadeIn duration, stopping the fadeIn coroutine");
+
                     _fadeInCoroutine = null;
                 }
 
@@ -139,7 +135,7 @@ namespace SOSXR.DOTweenExtender
 
             if (Math.Abs(m_fadeImage.color.a - 1) < 0.01f)
             {
-                this.Info("Fade out is already finished, not doing anything");
+                Debug.Log("Fade out is already finished, not doing anything");
 
                 yield break;
             }
