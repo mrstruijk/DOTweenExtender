@@ -1,0 +1,17 @@
+{
+  "name": "SOSXR.DOTweenExtender",
+  "rootNamespace": "SOSXR.DOTweenExtender",
+  "references": [
+    "GUID:bfa88a2202d07437e8fedc4881fee829",
+    "GUID:eb1034696cce04f25a4a7d38d2e0e5a4"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
